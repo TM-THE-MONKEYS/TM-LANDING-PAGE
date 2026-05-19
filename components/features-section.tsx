@@ -1,79 +1,74 @@
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
+import { Bot, BrainCircuit, Code2, Layers3, type LucideIcon } from "lucide-react"
 
-const features = [
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+
+type Service = {
+  title: string
+  description: string
+  icon: LucideIcon
+}
+
+const services: Service[] = [
   {
-    title: "Neural Processing",
-    description: "Advanced AI algorithms that adapt and learn from your interactions in real-time.",
-    icon: "🧠",
-    badge: "AI-Powered",
+    title: "Sites Modernos",
+    description: "Sites profissionais, rápidos, modernos e preparados para converter visitantes em clientes.",
+    icon: Code2,
   },
   {
-    title: "Quantum Security",
-    description: "Military-grade encryption with quantum-resistant protocols for ultimate protection.",
-    icon: "🔒",
-    badge: "Secure",
+    title: "Automação com IA",
+    description: "Automatize atendimentos, processos e tarefas usando inteligência artificial.",
+    icon: BrainCircuit,
   },
   {
-    title: "Holographic Interface",
-    description: "Immersive 3D interfaces that respond to gesture and voice commands seamlessly.",
-    icon: "🌐",
-    badge: "Immersive",
+    title: "Bots Inteligentes",
+    description: "Bots interativos para WhatsApp, Instagram e atendimento automático.",
+    icon: Bot,
   },
   {
-    title: "Temporal Analytics",
-    description: "Predictive insights that analyze patterns across multiple timeline dimensions.",
-    icon: "⚡",
-    badge: "Predictive",
-  },
-  {
-    title: "Bio-Sync Integration",
-    description: "Seamless integration with biological systems for enhanced human-machine interaction.",
-    icon: "🔗",
-    badge: "Connected",
-  },
-  {
-    title: "Reality Mesh",
-    description: "Blend digital and physical worlds with our advanced augmented reality framework.",
-    icon: "🎯",
-    badge: "AR/VR",
+    title: "Tecnologia Sob Medida",
+    description: "Soluções personalizadas para empresas que querem escalar usando tecnologia.",
+    icon: Layers3,
   },
 ]
 
 export function FeaturesSection() {
   return (
-    <section className="py-24 px-6 bg-background">
+    <section id="solucoes" className="relative overflow-hidden bg-slate-950 px-6 py-24">
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(34,211,238,0.12),transparent_30%),radial-gradient(circle_at_80%_80%,rgba(52,211,153,0.1),transparent_30%)]" />
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-foreground mb-4 font-sans">Next-Generation Features</h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-            Experience the future with cutting-edge technology that redefines what's possible
+        <div className="relative z-10 mb-16 max-w-3xl">
+          <p className="mb-3 text-sm font-semibold uppercase tracking-[0.35em] text-cyan-300">Soluções</p>
+          <h2 className="font-orbitron text-3xl font-bold text-white sm:text-5xl">Tecnologia simples de contratar.</h2>
+          <p className="mt-5 text-lg leading-8 text-slate-300">
+            Criamos experiências digitais modernas para empresas que querem vender mais, atender melhor e automatizar o
+            que consome tempo todos os dias.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {features.map((feature, index) => (
-            <Card
-              key={index}
-              className="glow-border hover:shadow-lg transition-all duration-300 slide-up"
-              style={{ animationDelay: `${index * 0.1}s` }}
-            >
-              <CardHeader>
-                <div className="flex items-center justify-between mb-2">
-                  <span className="text-3xl">{feature.icon}</span>
-                  <Badge variant="secondary" className="bg-accent text-accent-foreground">
-                    {feature.badge}
-                  </Badge>
-                </div>
-                <CardTitle className="text-xl font-bold text-card-foreground">{feature.title}</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <CardDescription className="text-muted-foreground leading-relaxed">
-                  {feature.description}
-                </CardDescription>
-              </CardContent>
-            </Card>
-          ))}
+        <div className="relative z-10 grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-4">
+          {services.map((service, index) => {
+            const ServiceIcon = service.icon
+
+            return (
+              <Card
+                key={service.title}
+                className="group border-white/10 bg-white/[0.04] text-white shadow-none backdrop-blur transition-all duration-300 hover:-translate-y-2 hover:border-cyan-300/40 hover:bg-white/[0.07] hover:shadow-[0_24px_70px_rgba(34,211,238,0.12)] slide-up"
+                style={{ animationDelay: `${index * 0.1}s` }}
+              >
+                <CardHeader>
+                  <div className="mb-5 flex size-12 items-center justify-center rounded-2xl border border-cyan-300/20 bg-cyan-300/10 text-cyan-200 transition-colors group-hover:bg-cyan-300 group-hover:text-slate-950">
+                    <ServiceIcon className="size-6" />
+                  </div>
+                  <CardTitle className="font-orbitron text-xl text-white">{service.title}</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <CardDescription className="text-base leading-7 text-slate-300">
+                    {service.description}
+                  </CardDescription>
+                </CardContent>
+              </Card>
+            )
+          })}
         </div>
       </div>
     </section>
