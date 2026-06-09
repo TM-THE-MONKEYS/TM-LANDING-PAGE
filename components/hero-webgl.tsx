@@ -1,7 +1,7 @@
-import { ArrowRight, Bot, Gauge, ShieldCheck, Sparkles, Zap, type LucideIcon } from "lucide-react"
+import { ArrowRight, Bot, Gauge, Instagram, ShieldCheck, Sparkles, Zap, type LucideIcon } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
-import { whatsappHref } from "@/lib/site"
+import { instagramHref, whatsappHref } from "@/lib/site"
 
 function WhatsAppIcon() {
   return (
@@ -45,7 +45,7 @@ export const Hero3DWebGL = () => {
             cobrar preços absurdos.
           </p>
 
-          <div className="mt-10 flex flex-col gap-4 sm:flex-row">
+          <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:flex-wrap">
             <Button
               asChild
               size="lg"
@@ -54,6 +54,18 @@ export const Hero3DWebGL = () => {
               <a href={whatsappHref} target="_blank" rel="noreferrer" aria-label="Fale com a The Monkeys no WhatsApp">
                 <WhatsAppIcon />
                 Fale Conosco no WhatsApp
+              </a>
+            </Button>
+
+            <Button
+              asChild
+              size="lg"
+              variant="outline"
+              className="h-14 rounded-full border-pink-400/40 bg-pink-500/10 px-7 text-base font-bold text-pink-200 hover:bg-pink-500/20 hover:text-pink-100"
+            >
+              <a href={instagramHref} target="_blank" rel="noreferrer" aria-label="Seguir a The Monkeys no Instagram">
+                <Instagram className="size-5" />
+                Instagram
               </a>
             </Button>
 

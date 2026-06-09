@@ -1,7 +1,7 @@
-import { Mail, MessageCircle } from "lucide-react"
+import { Instagram, Mail, MessageCircle } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
-import { contactEmail, legalLinks, navLinks, siteConfig, whatsappHref } from "@/lib/site"
+import { contactEmail, instagramHref, legalLinks, navLinks, siteConfig, whatsappHref } from "@/lib/site"
 
 export function Footer() {
   return (
@@ -45,12 +45,29 @@ export function Footer() {
             <p className="mb-4 font-sans text-gray-400">
               Converse com a gente e descubra a melhor solução para o seu negócio.
             </p>
-            <Button asChild className="rounded-full bg-emerald-400 font-bold text-slate-950 hover:bg-emerald-300">
-              <a href={whatsappHref} target="_blank" rel="noreferrer" aria-label="Abrir WhatsApp da The Monkeys">
-                <MessageCircle className="size-4" />
-                WhatsApp
-              </a>
-            </Button>
+            <div className="flex flex-col gap-3 sm:flex-row">
+              <Button asChild className="rounded-full bg-emerald-400 font-bold text-slate-950 hover:bg-emerald-300">
+                <a href={whatsappHref} target="_blank" rel="noreferrer" aria-label="Abrir WhatsApp da The Monkeys">
+                  <MessageCircle className="size-4" />
+                  WhatsApp
+                </a>
+              </Button>
+              <Button
+                asChild
+                variant="outline"
+                className="rounded-full border-pink-400/40 bg-pink-500/10 font-bold text-pink-200 hover:bg-pink-500/20 hover:text-pink-100"
+              >
+                <a
+                  href={instagramHref}
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label="Seguir a The Monkeys no Instagram"
+                >
+                  <Instagram className="size-4" />
+                  Instagram
+                </a>
+              </Button>
+            </div>
           </div>
         </div>
 

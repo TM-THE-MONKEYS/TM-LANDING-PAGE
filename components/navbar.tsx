@@ -3,8 +3,8 @@
 import { useState } from "react"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
-import { Menu, MessageCircle, X } from "lucide-react"
-import { navLinks, whatsappHref } from "@/lib/site"
+import { Instagram, Menu, MessageCircle, X } from "lucide-react"
+import { instagramHref, navLinks, whatsappHref } from "@/lib/site"
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
@@ -33,7 +33,7 @@ export function Navbar() {
             </div>
           </div>
 
-          <div className="hidden md:block">
+          <div className="hidden items-center gap-2 md:flex">
             <Button
               asChild
               className="rounded-full bg-emerald-400 font-sans font-bold text-slate-950 hover:bg-emerald-300"
@@ -41,6 +41,16 @@ export function Navbar() {
               <a href={whatsappHref} target="_blank" rel="noreferrer" aria-label="Fale com a The Monkeys no WhatsApp">
                 <MessageCircle className="size-4" />
                 WhatsApp
+              </a>
+            </Button>
+            <Button
+              asChild
+              variant="outline"
+              className="rounded-full border-pink-400/40 bg-pink-500/10 font-sans font-bold text-pink-200 hover:bg-pink-500/20 hover:text-pink-100"
+            >
+              <a href={instagramHref} target="_blank" rel="noreferrer" aria-label="Seguir a The Monkeys no Instagram">
+                <Instagram className="size-4" />
+                Instagram
               </a>
             </Button>
           </div>
@@ -70,14 +80,24 @@ export function Navbar() {
                   {link.label}
                 </a>
               ))}
-              <div className="px-3 py-2">
+              <div className="flex gap-2 px-3 py-2">
                 <Button
                   asChild
-                  className="w-full rounded-full bg-emerald-400 font-sans font-bold text-slate-950 hover:bg-emerald-300"
+                  className="flex-1 rounded-full bg-emerald-400 font-sans font-bold text-slate-950 hover:bg-emerald-300"
                 >
                   <a href={whatsappHref} target="_blank" rel="noreferrer" onClick={() => setIsOpen(false)}>
                     <MessageCircle className="size-4" />
-                    Fale no WhatsApp
+                    WhatsApp
+                  </a>
+                </Button>
+                <Button
+                  asChild
+                  variant="outline"
+                  className="flex-1 rounded-full border-pink-400/40 bg-pink-500/10 font-sans font-bold text-pink-200 hover:bg-pink-500/20 hover:text-pink-100"
+                >
+                  <a href={instagramHref} target="_blank" rel="noreferrer" onClick={() => setIsOpen(false)}>
+                    <Instagram className="size-4" />
+                    Instagram
                   </a>
                 </Button>
               </div>

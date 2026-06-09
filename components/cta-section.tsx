@@ -1,5 +1,7 @@
+import { Instagram } from "lucide-react"
+
 import { Button } from "@/components/ui/button"
-import { whatsappHref } from "@/lib/site"
+import { instagramHref, whatsappHref } from "@/lib/site"
 
 function WhatsAppIcon() {
   return (
@@ -23,7 +25,7 @@ export function CTASection() {
             Fale com a The Monkeys e descubra como automatizar seu negócio com IA.
           </p>
 
-          <div className="mt-10">
+          <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
             <Button
               asChild
               size="lg"
@@ -32,6 +34,17 @@ export function CTASection() {
               <a href={whatsappHref} target="_blank" rel="noreferrer" aria-label="Chamar a The Monkeys no WhatsApp">
                 <WhatsAppIcon />
                 Falar no WhatsApp
+              </a>
+            </Button>
+            <Button
+              asChild
+              size="lg"
+              variant="outline"
+              className="h-16 rounded-full border-pink-400/40 bg-pink-500/10 px-8 text-base font-bold text-pink-200 hover:bg-pink-500/20 hover:text-pink-100 sm:text-lg"
+            >
+              <a href={instagramHref} target="_blank" rel="noreferrer" aria-label="Seguir a The Monkeys no Instagram">
+                <Instagram className="size-5" />
+                Instagram
               </a>
             </Button>
           </div>
