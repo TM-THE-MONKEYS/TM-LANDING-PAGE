@@ -1,6 +1,8 @@
 import type React from "react"
 import type { Metadata } from "next"
-import { Orbitron, Geist } from "next/font/google"
+import { Orbitron } from "next/font/google"
+import { GeistSans } from "geist/font/sans"
+import { Analytics } from "@vercel/analytics/next"
 import "./globals.css"
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
@@ -25,23 +27,21 @@ const orbitron = Orbitron({
   display: "swap",
 })
 
-const geist = Geist({
-  subsets: ["latin"],
-  variable: "--font-geist",
-  display: "swap",
-})
-
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode
 }) {
   return (
-    <html lang="pt-BR" className={`${orbitron.variable} ${geist.variable} scroll-smooth antialiased dark`}>
-      <body>
+    <html
+      lang="pt-BR"
+      className={`${orbitron.variable} ${GeistSans.variable} scroll-smooth antialiased dark`}
+    >
+      <body className={GeistSans.className}>
         <Navbar />
         {children}
         <Footer />
+        <Analytics />
       </body>
     </html>
   )

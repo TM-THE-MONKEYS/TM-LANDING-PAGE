@@ -1,105 +1,68 @@
-import { Navbar } from "@/components/navbar"
-import { Button } from "@/components/ui/button"
-import { ArrowLeft } from "lucide-react"
-import Link from "next/link"
+import type { Metadata } from "next"
+
+import { LegalPageShell } from "@/components/legal-page-shell"
+import { contactEmail } from "@/lib/site"
+
+export const metadata: Metadata = {
+  title: "Termos de Uso | The Monkeys",
+  description: "Termos e condições para uso do site e serviços da The Monkeys.",
+}
 
 export default function TermsOfService() {
   return (
-    <div className="min-h-screen bg-black text-white">
-      <Navbar />
-      <main className="pt-20 pb-16">
-        <div className="container mx-auto px-4 max-w-4xl">
-          <div className="mb-8">
-            <Link href="/">
-              <Button variant="ghost" className="text-white hover:text-red-500 hover:bg-red-500/10 font-geist">
-                <ArrowLeft className="mr-2 h-4 w-4" />
-                Back to Home
-              </Button>
-            </Link>
-          </div>
+    <LegalPageShell title="Termos de Uso">
+      <section>
+        <h2 className="mb-4 font-orbitron text-2xl font-bold text-cyan-300">1. Aceitação dos termos</h2>
+        <p className="leading-relaxed text-gray-300">
+          Ao acessar este site ou entrar em contato com a The Monkeys, você concorda com estes Termos de Uso. Se não
+          concordar, recomendamos não utilizar nossos canais digitais.
+        </p>
+      </section>
 
-          <h1 className="text-4xl md:text-5xl font-bold text-center mb-8 font-orbitron">Terms of Service</h1>
+      <section>
+        <h2 className="mb-4 font-orbitron text-2xl font-bold text-cyan-300">2. Serviços</h2>
+        <p className="leading-relaxed text-gray-300">
+          A The Monkeys oferece serviços de desenvolvimento web, automações, integrações com IA e soluções digitais
+          personalizadas. Escopo, prazos, valores e entregas serão definidos em proposta ou contrato específico.
+        </p>
+      </section>
 
-          <div className="prose prose-invert max-w-none space-y-8">
-            <p className="text-gray-300 text-lg leading-relaxed">Last updated: {new Date().toLocaleDateString()}</p>
+      <section>
+        <h2 className="mb-4 font-orbitron text-2xl font-bold text-cyan-300">3. Uso adequado</h2>
+        <p className="mb-4 leading-relaxed text-gray-300">Você concorda em não utilizar este site para:</p>
+        <ul className="ml-4 list-inside list-disc space-y-2 text-gray-300">
+          <li>Enviar conteúdo ilegal, ofensivo ou fraudulento</li>
+          <li>Tentar comprometer a segurança ou disponibilidade da plataforma</li>
+          <li>Reproduzir materiais do site sem autorização prévia</li>
+        </ul>
+      </section>
 
-            <section>
-              <h2 className="text-2xl font-bold mb-4 text-red-500 font-display">1. Acceptance of Terms</h2>
-              <p className="text-gray-300 leading-relaxed">
-                By accessing or using Neural Link's services, including our brain-computer interface technology, you
-                agree to be bound by these Terms of Service and all applicable laws and regulations. If you do not agree
-                with any of these terms, you are prohibited from using our services.
-              </p>
-            </section>
+      <section>
+        <h2 className="mb-4 font-orbitron text-2xl font-bold text-cyan-300">4. Propriedade intelectual</h2>
+        <p className="leading-relaxed text-gray-300">
+          Textos, identidade visual, layout e demais conteúdos deste site pertencem à The Monkeys, salvo quando
+          indicado de forma diferente ou acordado em contrato.
+        </p>
+      </section>
 
-            <section>
-              <h2 className="text-2xl font-bold mb-4 text-red-500 font-display">2. Medical Device Disclaimer</h2>
-              <p className="text-gray-300 leading-relaxed mb-4">
-                Neural Link technology is an experimental medical device. By using our services, you acknowledge:
-              </p>
-              <ul className="list-disc list-inside text-gray-300 space-y-2 ml-4">
-                <li>The technology is investigational and may carry unknown risks</li>
-                <li>You have received proper medical consultation and clearance</li>
-                <li>You understand the potential benefits and risks of brain-computer interfaces</li>
-                <li>You consent to participate in ongoing clinical studies and monitoring</li>
-              </ul>
-            </section>
+      <section>
+        <h2 className="mb-4 font-orbitron text-2xl font-bold text-cyan-300">5. Limitação de responsabilidade</h2>
+        <p className="leading-relaxed text-gray-300">
+          Empregamos boas práticas para manter o site disponível e seguro, mas não garantimos funcionamento ininterrupto.
+          Informações publicadas têm caráter informativo e podem ser atualizadas sem aviso prévio.
+        </p>
+      </section>
 
-            <section>
-              <h2 className="text-2xl font-bold mb-4 text-red-500 font-display">3. User Responsibilities</h2>
-              <p className="text-gray-300 leading-relaxed mb-4">As a user of Neural Link services, you agree to:</p>
-              <ul className="list-disc list-inside text-gray-300 space-y-2 ml-4">
-                <li>Follow all medical protocols and safety guidelines</li>
-                <li>Attend regular check-ups and monitoring appointments</li>
-                <li>Report any adverse effects or technical issues immediately</li>
-                <li>Not attempt to modify or tamper with the neural interface device</li>
-                <li>Use the technology only for approved applications and purposes</li>
-              </ul>
-            </section>
-
-            <section>
-              <h2 className="text-2xl font-bold mb-4 text-red-500 font-display">4. Prohibited Uses</h2>
-              <p className="text-gray-300 leading-relaxed mb-4">You may not use Neural Link services to:</p>
-              <ul className="list-disc list-inside text-gray-300 space-y-2 ml-4">
-                <li>Engage in any illegal or unauthorized activities</li>
-                <li>Attempt to hack, reverse engineer, or compromise our systems</li>
-                <li>Share access credentials or allow unauthorized use of your device</li>
-                <li>Use the technology in ways that could harm yourself or others</li>
-                <li>Violate any applicable laws, regulations, or ethical guidelines</li>
-              </ul>
-            </section>
-
-            <section>
-              <h2 className="text-2xl font-bold mb-4 text-red-500 font-display">5. Limitation of Liability</h2>
-              <p className="text-gray-300 leading-relaxed">
-                Neural Link shall not be liable for any indirect, incidental, special, consequential, or punitive
-                damages resulting from your use of our services. Our total liability shall not exceed the amount paid by
-                you for the services in the twelve months preceding the claim.
-              </p>
-            </section>
-
-            <section>
-              <h2 className="text-2xl font-bold mb-4 text-red-500 font-display">6. Termination</h2>
-              <p className="text-gray-300 leading-relaxed">
-                We may terminate or suspend your access to our services immediately, without prior notice, for any
-                reason, including breach of these Terms of Service or if we reasonably believe termination is necessary
-                for safety or medical reasons.
-              </p>
-            </section>
-
-            <section>
-              <h2 className="text-2xl font-bold mb-4 text-red-500 font-display">7. Contact Information</h2>
-              <p className="text-gray-300 leading-relaxed">
-                For questions about these Terms of Service, contact us at:
-                <br />
-                Email: legal@neurallink.com
-                <br />
-                Address: Neural Link Corporation, Legal Department, [Address]
-              </p>
-            </section>
-          </div>
-        </div>
-      </main>
-    </div>
+      <section>
+        <h2 className="mb-4 font-orbitron text-2xl font-bold text-cyan-300">6. Contato</h2>
+        <p className="leading-relaxed text-gray-300">
+          Dúvidas sobre estes termos podem ser enviadas para{" "}
+          <a href={`mailto:${contactEmail}`} className="text-cyan-300 hover:underline">
+            {contactEmail}
+          </a>
+          .
+        </p>
+      </section>
+    </LegalPageShell>
   )
 }

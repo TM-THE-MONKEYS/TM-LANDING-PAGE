@@ -40,7 +40,7 @@ export function TestimonialsSection() {
           {testimonials.map((testimonial, index) => (
             <Card key={index} className="glow-border slide-up" style={{ animationDelay: `${index * 0.15}s` }}>
               <CardContent className="p-6">
-                <p className="text-card-foreground mb-6 leading-relaxed italic">"{testimonial.content}"</p>
+                <p className="text-card-foreground mb-6 leading-relaxed italic">&ldquo;{testimonial.content}&rdquo;</p>
                 <div className="flex items-center gap-4">
                   <Avatar>
                     <AvatarImage src={testimonial.avatar || "/placeholder.svg"} alt={testimonial.name} />

@@ -18,7 +18,7 @@ export function ApplicationsTimeline() {
             </div>
             <div className="flex items-center gap-3 text-red-400 text-sm">
               <div className="w-2 h-2 bg-red-500 rounded-full"></div>
-              ALS and Parkinson's symptom management
+              ALS and Parkinson&apos;s symptom management
             </div>
             <div className="flex items-center gap-3 text-red-400 text-sm">
               <div className="w-2 h-2 bg-red-500 rounded-full"></div>
