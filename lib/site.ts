@@ -1,5 +1,5 @@
 export const whatsappHref =
-  "https://wa.me/5551995485038?text=Olá, The Monkeys! Quero tirar dúvidas sobre o seu serviço."
+  "https://wa.me/5551993624587?text=Olá, The Monkeys! Quero tirar dúvidas sobre o seu serviço."
 
 export const contactEmail = "themonkeyssuporte@gmail.com"
 
@@ -26,4 +26,4 @@ export const legalLinks = [
   { label: "Termos de uso", href: "/terms" },
   { label: "Cookies", href: "/cookies" },
 ]
-
+
