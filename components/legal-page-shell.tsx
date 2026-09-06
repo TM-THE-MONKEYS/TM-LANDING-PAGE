@@ -12,21 +12,21 @@ type LegalPageShellProps = {
 
 export function LegalPageShell({ title, children }: LegalPageShellProps) {
   return (
-    <main className="pt-20 pb-16">
+    <main className="pt-20 pb-16 text-foreground">
       <div className="container mx-auto max-w-4xl px-4">
         <div className="mb-8">
           <Link href="/">
-            <Button variant="ghost" className="font-sans text-white hover:bg-cyan-400/10 hover:text-cyan-300">
+            <Button variant="ghost" className="font-sans text-foreground hover:bg-primary/10 hover:text-primary">
               <ArrowLeft className="mr-2 h-4 w-4" />
               Voltar para a home
             </Button>
           </Link>
         </div>
 
-        <h1 className="mb-8 text-center font-orbitron text-4xl font-bold md:text-5xl">{title}</h1>
+        <h1 className="mb-8 text-center font-sans text-4xl font-bold md:text-5xl">{title}</h1>
 
-        <div className="prose prose-invert max-w-none space-y-8">
-          <p className="text-lg leading-relaxed text-gray-300">Última atualização: {lastUpdated}</p>
+        <div className="prose dark:prose-invert max-w-none space-y-8">
+          <p className="text-lg leading-relaxed text-muted-foreground">Última atualização: {lastUpdated}</p>
           {children}
         </div>
       </div>

@@ -12,7 +12,7 @@ export default function PrivacyPolicy() {
   return (
     <LegalPageShell title="Política de Privacidade">
       <section>
-        <h2 className="mb-4 font-orbitron text-2xl font-bold text-cyan-300">1. Informações que coletamos</h2>
+        <h2 className="mb-4 font-sans text-2xl font-bold text-primary">1. Informações que coletamos</h2>
         <p className="mb-4 leading-relaxed text-gray-300">
           A The Monkeys pode coletar dados fornecidos voluntariamente por você, como nome, e-mail, telefone e mensagens
           enviadas por formulários, WhatsApp ou outros canais de contato.
@@ -25,7 +25,7 @@ export default function PrivacyPolicy() {
       </section>
 
       <section>
-        <h2 className="mb-4 font-orbitron text-2xl font-bold text-cyan-300">2. Como usamos os dados</h2>
+        <h2 className="mb-4 font-sans text-2xl font-bold text-primary">2. Como usamos os dados</h2>
         <p className="mb-4 leading-relaxed text-gray-300">Utilizamos as informações para:</p>
         <ul className="ml-4 list-inside list-disc space-y-2 text-gray-300">
           <li>Responder solicitações e prestar atendimento comercial</li>
@@ -36,7 +36,7 @@ export default function PrivacyPolicy() {
       </section>
 
       <section>
-        <h2 className="mb-4 font-orbitron text-2xl font-bold text-cyan-300">3. Compartilhamento</h2>
+        <h2 className="mb-4 font-sans text-2xl font-bold text-primary">3. Compartilhamento</h2>
         <p className="leading-relaxed text-gray-300">
           Não vendemos seus dados. Podemos compartilhá-los apenas com prestadores essenciais à operação do site e dos
           nossos serviços, sempre com medidas de segurança adequadas, ou quando exigido por lei.
@@ -44,7 +44,7 @@ export default function PrivacyPolicy() {
       </section>
 
       <section>
-        <h2 className="mb-4 font-orbitron text-2xl font-bold text-cyan-300">4. Seus direitos</h2>
+        <h2 className="mb-4 font-sans text-2xl font-bold text-primary">4. Seus direitos</h2>
         <p className="mb-4 leading-relaxed text-gray-300">
           Você pode solicitar acesso, correção, exclusão ou informações sobre o tratamento dos seus dados pessoais,
           conforme a legislação aplicável.
@@ -52,10 +52,10 @@ export default function PrivacyPolicy() {
       </section>
 
       <section>
-        <h2 className="mb-4 font-orbitron text-2xl font-bold text-cyan-300">5. Contato</h2>
+        <h2 className="mb-4 font-sans text-2xl font-bold text-primary">5. Contato</h2>
         <p className="leading-relaxed text-gray-300">
           Para dúvidas sobre esta política, entre em contato pelo e-mail{" "}
-          <a href={`mailto:${contactEmail}`} className="text-cyan-300 hover:underline">
+          <a href={`mailto:${contactEmail}`} className="text-primary hover:underline">
             {contactEmail}
           </a>
           .

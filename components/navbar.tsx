@@ -1,31 +1,58 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
+import { ThemeToggle } from "@/components/theme-toggle"
 import { Instagram, Menu, MessageCircle, X } from "lucide-react"
 import { instagramHref, navLinks, whatsappHref } from "@/lib/site"
+import { cn } from "@/lib/utils"
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
+  const [scrolled, setScrolled] = useState(false)
+
+  useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 24)
+    window.addEventListener("scroll", handleScroll, { passive: true })
+    return () => window.removeEventListener("scroll", handleScroll)
+  }, [])
 
   return (
-    <nav className="fixed left-0 right-0 top-0 z-[9999] border-b border-white/10 bg-black/80 backdrop-blur-xl">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
+    <nav
+      className={cn(
+        "fixed left-0 right-0 top-0 z-[9999] border-b border-border bg-background/85 text-foreground backdrop-blur-xl transition-all duration-300",
+        scrolled && "shadow-sm",
+      )}
+    >
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div
+          className={cn(
+            "flex items-center justify-between transition-all duration-300",
+            scrolled ? "h-12" : "h-16",
+          )}
+        >
+          {/* Logo */}
           <div className="flex-shrink-0">
-            <Link href="/" className="font-orbitron text-xl font-bold text-white">
-              The<span className="text-cyan-300">Monkeys</span>
+            <Link
+              href="/"
+              className={cn(
+                "font-sans font-bold text-foreground transition-all duration-300",
+                scrolled ? "text-base" : "text-xl",
+              )}
+            >
+              The<span className="text-primary">Monkeys</span>
             </Link>
           </div>
 
+          {/* Nav links — desktop */}
           <div className="hidden md:block">
             <div className="ml-10 flex items-baseline space-x-8">
               {navLinks.map((link) => (
                 <a
                   key={link.href}
                   href={link.href}
-                  className="font-sans text-sm text-slate-200 transition-colors duration-200 hover:text-cyan-300"
+                  className="font-sans text-sm text-muted-foreground transition-colors duration-200 hover:text-primary"
                 >
                   {link.label}
                 </a>
@@ -33,10 +60,13 @@ export function Navbar() {
             </div>
           </div>
 
+          {/* Actions — desktop */}
           <div className="hidden items-center gap-2 md:flex">
+            <ThemeToggle />
             <Button
               asChild
-              className="rounded-full bg-emerald-400 font-sans font-bold text-slate-950 hover:bg-emerald-300"
+              size={scrolled ? "sm" : "default"}
+              className="rounded-full bg-primary font-sans font-bold text-primary-foreground transition-all duration-300 hover:bg-primary/90"
             >
               <a href={whatsappHref} target="_blank" rel="noreferrer" aria-label="Fale com a The Monkeys no WhatsApp">
                 <MessageCircle className="size-4" />
@@ -45,8 +75,9 @@ export function Navbar() {
             </Button>
             <Button
               asChild
+              size={scrolled ? "sm" : "default"}
               variant="outline"
-              className="rounded-full border-pink-400/40 bg-pink-500/10 font-sans font-bold text-pink-200 hover:bg-pink-500/20 hover:text-pink-100"
+              className="rounded-full border-border font-sans font-bold text-foreground transition-all duration-300"
             >
               <a href={instagramHref} target="_blank" rel="noreferrer" aria-label="Seguir a The Monkeys no Instagram">
                 <Instagram className="size-4" />
@@ -55,10 +86,11 @@ export function Navbar() {
             </Button>
           </div>
 
+          {/* Hamburguer — mobile */}
           <div className="md:hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="text-white transition-colors duration-200 hover:text-cyan-300"
+              className="text-foreground transition-colors duration-200 hover:text-primary"
               aria-label={isOpen ? "Fechar menu" : "Abrir menu"}
               aria-expanded={isOpen}
             >
@@ -67,23 +99,25 @@ export function Navbar() {
           </div>
         </div>
 
+        {/* Mobile menu */}
         {isOpen && (
           <div className="md:hidden">
-            <div className="space-y-1 border-t border-white/10 bg-black/95 px-2 pb-3 pt-2">
+            <div className="space-y-1 border-t border-border bg-background px-2 pb-3 pt-2">
               {navLinks.map((link) => (
                 <a
                   key={link.href}
                   href={link.href}
-                  className="block px-3 py-2 font-sans text-white transition-colors duration-200 hover:text-cyan-300"
+                  className="block px-3 py-2 font-sans text-muted-foreground transition-colors duration-200 hover:text-primary"
                   onClick={() => setIsOpen(false)}
                 >
                   {link.label}
                 </a>
               ))}
-              <div className="flex gap-2 px-3 py-2">
+              <div className="flex items-center gap-2 px-3 py-2">
+                <ThemeToggle />
                 <Button
                   asChild
-                  className="flex-1 rounded-full bg-emerald-400 font-sans font-bold text-slate-950 hover:bg-emerald-300"
+                  className="flex-1 rounded-full bg-primary font-sans font-bold text-primary-foreground hover:bg-primary/90"
                 >
                   <a href={whatsappHref} target="_blank" rel="noreferrer" onClick={() => setIsOpen(false)}>
                     <MessageCircle className="size-4" />
@@ -93,7 +127,7 @@ export function Navbar() {
                 <Button
                   asChild
                   variant="outline"
-                  className="flex-1 rounded-full border-pink-400/40 bg-pink-500/10 font-sans font-bold text-pink-200 hover:bg-pink-500/20 hover:text-pink-100"
+                  className="flex-1 rounded-full border-border font-sans font-bold text-foreground"
                 >
                   <a href={instagramHref} target="_blank" rel="noreferrer" onClick={() => setIsOpen(false)}>
                     <Instagram className="size-4" />

@@ -1,5 +1,5 @@
 export const whatsappHref =
-  "https://wa.me/5551993624587?text=Olá, The Monkeys! Quero tirar dúvidas sobre o seu serviço."
+  "https://wa.me/5551993624587?text=Olá, The Monkeys! Quero conversar sobre um sistema sob medida para a minha operação."
 
 export const contactEmail = "themonkeyssuporte@gmail.com"
 
@@ -9,9 +9,9 @@ export const lastUpdated = "9 de junho de 2026"
 
 export const siteConfig = {
   name: "The Monkeys",
-  slogan: "Tecnologia de verdade a preço acessível.",
+  slogan: "Sistemas sob medida para quem cansou de planilha.",
   description:
-    "Sites modernos, automações com IA, agentes inteligentes e bots interativos para negócios que querem crescer com tecnologia acessível.",
+    "A The Monkeys constrói sistemas de gestão (SaaS) e automações sob medida para pequenas e médias empresas que ainda dependem de planilha, WhatsApp e controle manual para operar.",
 }
 
 export const navLinks = [
