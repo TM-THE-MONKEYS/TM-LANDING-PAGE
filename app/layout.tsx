@@ -13,11 +13,20 @@ export const metadata: Metadata = {
   description: siteConfig.description,
   generator: "v0.app",
   keywords: ["The Monkeys", "sistema de gestão sob medida", "SaaS para PME", "automação de processos", "software sob medida"],
+  icons: {
+    icon: [
+      { url: "/favicon-32.png", sizes: "32x32", type: "image/png" },
+      { url: "/icon-192.png", sizes: "192x192", type: "image/png" },
+      { url: "/icon-512.png", sizes: "512x512", type: "image/png" },
+    ],
+    apple: [{ url: "/apple-icon.png", sizes: "180x180", type: "image/png" }],
+  },
   openGraph: {
     title: "The Monkeys | Sua empresa cresceu. Sua planilha não acompanhou.",
     description: siteConfig.description,
     type: "website",
     locale: "pt_BR",
+    images: [{ url: "/mark-monkey.png", width: 512, height: 512, alt: "The Monkeys" }],
   },
 }
 
