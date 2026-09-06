@@ -13,25 +13,24 @@ function WhatsAppIcon() {
 
 export function CTASection() {
   return (
-    <section id="contato" className="relative overflow-hidden bg-slate-950 px-6 py-24 text-white">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(52,211,153,0.16),transparent_34%),linear-gradient(135deg,rgba(34,211,238,0.12),rgba(168,85,247,0.1))]" />
+    <section id="contato" className="relative overflow-hidden bg-muted/40 px-6 py-24 text-foreground">
       <div className="relative z-10 mx-auto max-w-4xl text-center">
-        <div className="rounded-[2rem] border border-white/10 bg-white/[0.05] p-8 shadow-[0_30px_100px_rgba(34,211,238,0.12)] backdrop-blur sm:p-12 slide-up">
-          <p className="mb-4 text-sm font-semibold uppercase tracking-[0.35em] text-emerald-300">Comece agora</p>
-          <h2 className="font-orbitron text-3xl font-bold text-balance sm:text-5xl">
-            Pronto para colocar a tecnologia para trabalhar por você?
+        <div className="rounded-[2rem] border border-border bg-card p-8 sm:p-12">
+          <p className="mb-4 text-sm font-semibold tracking-wide text-primary">Comece agora</p>
+          <h2 className="font-sans text-3xl font-bold text-balance sm:text-5xl">
+            Sua operação ainda depende de planilha e controle manual?
           </h2>
-          <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-slate-300">
-            Fale com a The Monkeys e descubra como automatizar seu negócio com IA.
+          <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-muted-foreground">
+            Vamos ver se um sistema sob medida resolve isso. Sem compromisso.
           </p>
 
           <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
             <Button
               asChild
               size="lg"
-              className="h-16 rounded-full bg-emerald-400 px-8 text-base font-bold text-slate-950 shadow-[0_0_45px_rgba(52,211,153,0.4)] hover:bg-emerald-300 hover:shadow-[0_0_60px_rgba(52,211,153,0.55)] sm:text-lg"
+              className="h-14 rounded-full bg-primary px-8 text-base font-bold text-primary-foreground hover:bg-primary/90 sm:text-lg"
             >
-              <a href={whatsappHref} target="_blank" rel="noreferrer" aria-label="Chamar a The Monkeys no WhatsApp">
+              <a href={whatsappHref} target="_blank" rel="noreferrer" aria-label="Falar no WhatsApp com a The Monkeys">
                 <WhatsAppIcon />
                 Falar no WhatsApp
               </a>
@@ -40,7 +39,7 @@ export function CTASection() {
               asChild
               size="lg"
               variant="outline"
-              className="h-16 rounded-full border-pink-400/40 bg-pink-500/10 px-8 text-base font-bold text-pink-200 hover:bg-pink-500/20 hover:text-pink-100 sm:text-lg"
+              className="h-14 rounded-full border-border bg-background px-8 text-base font-bold text-foreground hover:bg-muted sm:text-lg"
             >
               <a href={instagramHref} target="_blank" rel="noreferrer" aria-label="Seguir a The Monkeys no Instagram">
                 <Instagram className="size-5" />

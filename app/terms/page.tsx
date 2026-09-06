@@ -12,7 +12,7 @@ export default function TermsOfService() {
   return (
     <LegalPageShell title="Termos de Uso">
       <section>
-        <h2 className="mb-4 font-orbitron text-2xl font-bold text-cyan-300">1. Aceitação dos termos</h2>
+        <h2 className="mb-4 font-sans text-2xl font-bold text-primary">1. Aceitação dos termos</h2>
         <p className="leading-relaxed text-gray-300">
           Ao acessar este site ou entrar em contato com a The Monkeys, você concorda com estes Termos de Uso. Se não
           concordar, recomendamos não utilizar nossos canais digitais.
@@ -20,7 +20,7 @@ export default function TermsOfService() {
       </section>
 
       <section>
-        <h2 className="mb-4 font-orbitron text-2xl font-bold text-cyan-300">2. Serviços</h2>
+        <h2 className="mb-4 font-sans text-2xl font-bold text-primary">2. Serviços</h2>
         <p className="leading-relaxed text-gray-300">
           A The Monkeys oferece serviços de desenvolvimento web, automações, integrações com IA e soluções digitais
           personalizadas. Escopo, prazos, valores e entregas serão definidos em proposta ou contrato específico.
@@ -28,7 +28,7 @@ export default function TermsOfService() {
       </section>
 
       <section>
-        <h2 className="mb-4 font-orbitron text-2xl font-bold text-cyan-300">3. Uso adequado</h2>
+        <h2 className="mb-4 font-sans text-2xl font-bold text-primary">3. Uso adequado</h2>
         <p className="mb-4 leading-relaxed text-gray-300">Você concorda em não utilizar este site para:</p>
         <ul className="ml-4 list-inside list-disc space-y-2 text-gray-300">
           <li>Enviar conteúdo ilegal, ofensivo ou fraudulento</li>
@@ -38,7 +38,7 @@ export default function TermsOfService() {
       </section>
 
       <section>
-        <h2 className="mb-4 font-orbitron text-2xl font-bold text-cyan-300">4. Propriedade intelectual</h2>
+        <h2 className="mb-4 font-sans text-2xl font-bold text-primary">4. Propriedade intelectual</h2>
         <p className="leading-relaxed text-gray-300">
           Textos, identidade visual, layout e demais conteúdos deste site pertencem à The Monkeys, salvo quando
           indicado de forma diferente ou acordado em contrato.
@@ -46,7 +46,7 @@ export default function TermsOfService() {
       </section>
 
       <section>
-        <h2 className="mb-4 font-orbitron text-2xl font-bold text-cyan-300">5. Limitação de responsabilidade</h2>
+        <h2 className="mb-4 font-sans text-2xl font-bold text-primary">5. Limitação de responsabilidade</h2>
         <p className="leading-relaxed text-gray-300">
           Empregamos boas práticas para manter o site disponível e seguro, mas não garantimos funcionamento ininterrupto.
           Informações publicadas têm caráter informativo e podem ser atualizadas sem aviso prévio.
@@ -54,10 +54,10 @@ export default function TermsOfService() {
       </section>
 
       <section>
-        <h2 className="mb-4 font-orbitron text-2xl font-bold text-cyan-300">6. Contato</h2>
+        <h2 className="mb-4 font-sans text-2xl font-bold text-primary">6. Contato</h2>
         <p className="leading-relaxed text-gray-300">
           Dúvidas sobre estes termos podem ser enviadas para{" "}
-          <a href={`mailto:${contactEmail}`} className="text-cyan-300 hover:underline">
+          <a href={`mailto:${contactEmail}`} className="text-primary hover:underline">
             {contactEmail}
           </a>
           .

@@ -12,7 +12,7 @@ export default function CookiePolicy() {
   return (
     <LegalPageShell title="Política de Cookies">
       <section>
-        <h2 className="mb-4 font-orbitron text-2xl font-bold text-cyan-300">1. O que são cookies</h2>
+        <h2 className="mb-4 font-sans text-2xl font-bold text-primary">1. O que são cookies</h2>
         <p className="leading-relaxed text-gray-300">
           Cookies são pequenos arquivos armazenados no seu navegador para lembrar preferências, melhorar a navegação e
           entender como o site é utilizado.
@@ -20,7 +20,7 @@ export default function CookiePolicy() {
       </section>
 
       <section>
-        <h2 className="mb-4 font-orbitron text-2xl font-bold text-cyan-300">2. Tipos de cookies que usamos</h2>
+        <h2 className="mb-4 font-sans text-2xl font-bold text-primary">2. Tipos de cookies que usamos</h2>
         <div className="space-y-6">
           <div>
             <h3 className="mb-2 text-xl font-semibold text-white">Essenciais</h3>
@@ -44,7 +44,7 @@ export default function CookiePolicy() {
       </section>
 
       <section>
-        <h2 className="mb-4 font-orbitron text-2xl font-bold text-cyan-300">3. Cookies de terceiros</h2>
+        <h2 className="mb-4 font-sans text-2xl font-bold text-primary">3. Cookies de terceiros</h2>
         <p className="leading-relaxed text-gray-300">
           Podemos utilizar ferramentas de terceiros, como serviços de analytics, que definem cookies conforme suas
           próprias políticas de privacidade.
@@ -52,7 +52,7 @@ export default function CookiePolicy() {
       </section>
 
       <section>
-        <h2 className="mb-4 font-orbitron text-2xl font-bold text-cyan-300">4. Como gerenciar cookies</h2>
+        <h2 className="mb-4 font-sans text-2xl font-bold text-primary">4. Como gerenciar cookies</h2>
         <p className="mb-4 leading-relaxed text-gray-300">
           Você pode bloquear, remover ou limitar cookies nas configurações do seu navegador. A desativação de alguns
           cookies pode afetar partes da experiência no site.
@@ -60,10 +60,10 @@ export default function CookiePolicy() {
       </section>
 
       <section>
-        <h2 className="mb-4 font-orbitron text-2xl font-bold text-cyan-300">5. Contato</h2>
+        <h2 className="mb-4 font-sans text-2xl font-bold text-primary">5. Contato</h2>
         <p className="leading-relaxed text-gray-300">
           Em caso de dúvidas sobre cookies, fale conosco em{" "}
-          <a href={`mailto:${contactEmail}`} className="text-cyan-300 hover:underline">
+          <a href={`mailto:${contactEmail}`} className="text-primary hover:underline">
             {contactEmail}
           </a>
           .
