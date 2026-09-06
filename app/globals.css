@@ -214,6 +214,20 @@
   }
 }
 
+@keyframes hero-badge-glow {
+  0%,
+  100% {
+    box-shadow: 0 0 24px -4px color-mix(in oklab, var(--primary) 35%, transparent);
+  }
+  50% {
+    box-shadow: 0 0 36px -2px color-mix(in oklab, var(--primary) 55%, transparent);
+  }
+}
+
+.hero-badge {
+  animation: hero-badge-glow 2.8s ease-in-out infinite;
+}
+
 @keyframes bounce {
   0%,
   20%,
@@ -234,7 +248,8 @@
   .fade-in,
   .fade-in-subtitle,
   .slide-up,
-  .pulse-button {
+  .pulse-button,
+  .hero-badge {
     animation: none !important;
     opacity: 1;
     transform: none;

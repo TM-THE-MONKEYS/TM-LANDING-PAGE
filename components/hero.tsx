@@ -2,10 +2,10 @@
 
 import Image from "next/image"
 import { useEffect, useState } from "react"
-import { ArrowRight, Instagram, Layers3 } from "lucide-react"
+import { ArrowRight, Layers3 } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
-import { instagramHref, whatsappHref } from "@/lib/site"
+import { whatsappHref } from "@/lib/site"
 
 function WhatsAppIcon() {
   return (
@@ -56,47 +56,39 @@ export function Hero() {
           priority
           sizes="100vw"
         />
-        {/*
-          Overlay direcional: lado esquerdo (texto) muito escuro,
-          lado direito (foto) quase limpo — foto aparece à direita,
-          texto sempre legível à esquerda.
-        */}
-        <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/65 to-black/20" />
-        {/* camada extra no topo para o navbar ficar legível */}
-        <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-black/50 to-transparent" />
+        {/* Overlay uniforme: texto centralizado precisa de contraste em toda a largura */}
+        <div className="absolute inset-0 bg-black/60" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/35 to-black/45" />
       </div>
 
-      {/* ── Conteúdo: grid 2 col — copy esquerda, foto direita ── */}
-      <div className="relative z-10 mx-auto grid min-h-svh max-w-7xl grid-cols-1 items-center px-6 pt-20 pb-16 lg:grid-cols-2 lg:px-8">
+      {/* Conteúdo centralizado — escala maior pra preencher o viewport */}
+      <div className="relative z-10 mx-auto flex min-h-svh max-w-6xl flex-col items-center justify-center px-6 pt-24 pb-16 text-center sm:px-10">
+        <div className="w-full py-6">
 
-        {/* Coluna de copy */}
-        <div className="py-8">
-
-          {/* Badge */}
-          <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/10 px-4 py-2 text-sm font-medium text-white backdrop-blur-sm">
-            <Layers3 className="size-4 shrink-0 text-white" />
+          <div className="hero-badge mb-8 inline-flex items-center gap-3 rounded-full border border-primary/55 bg-primary/20 px-6 py-3 text-lg font-semibold text-white shadow-[0_0_28px_-4px] shadow-primary/40 backdrop-blur-sm sm:text-xl">
+            <span className="flex size-8 items-center justify-center rounded-full bg-primary/30">
+              <Layers3 className="size-5 shrink-0 text-primary" />
+            </span>
             Sistemas sob medida para quem cansou de planilha.
           </div>
 
-          {/* H1 */}
-          <h1 className="font-sans text-4xl font-black leading-tight tracking-tight text-white text-balance sm:text-5xl lg:text-6xl xl:text-7xl">
-            Sua empresa cresceu.<br className="hidden sm:block" />
+          <h1 className="font-sans text-5xl font-black leading-[1.05] tracking-tight text-white text-balance sm:text-6xl lg:text-7xl xl:text-8xl">
+            Sua empresa cresceu.
+            <br className="hidden sm:block" />
             Sua planilha não acompanhou.
           </h1>
 
-          {/* Subheadline */}
-          <p className="mt-6 max-w-xl text-base leading-8 text-white/85 sm:text-lg">
+          <p className="mx-auto mt-8 max-w-3xl text-lg leading-8 text-white/90 sm:text-xl sm:leading-9">
             Construímos sistemas de gestão (SaaS) e automações sob medida para pequenas e
             médias empresas que ainda dependem de controle manual — com acompanhamento
             próximo, do primeiro processo mapeado ao sistema no ar.
           </p>
 
-          {/* CTAs */}
-          <div className="mt-10 flex flex-wrap gap-3">
+          <div className="mt-12 flex flex-wrap items-center justify-center gap-4">
             <Button
               asChild
               size="lg"
-              className="h-13 rounded-full bg-primary px-7 text-base font-bold text-white hover:bg-primary/90"
+              className="h-14 rounded-full bg-primary px-8 text-lg font-bold text-white hover:bg-primary/90"
             >
               <a href={whatsappHref} target="_blank" rel="noreferrer" aria-label="Falar no WhatsApp com a The Monkeys">
                 <WhatsAppIcon />
@@ -108,7 +100,7 @@ export function Hero() {
               asChild
               size="lg"
               variant="outline"
-              className="h-13 rounded-full border-white/30 bg-transparent px-7 text-base font-bold text-white backdrop-blur-sm hover:bg-white/15 hover:text-white"
+              className="h-14 rounded-full border-white/30 bg-transparent px-8 text-lg font-bold text-white backdrop-blur-sm hover:bg-white/15 hover:text-white"
             >
               <a href="#solucoes">
                 Conheça as soluções
@@ -117,22 +109,19 @@ export function Hero() {
             </Button>
           </div>
 
-          {/* Stats */}
-          <div className="mt-10 grid grid-cols-1 gap-3 sm:grid-cols-3">
+          <div className="mx-auto mt-14 grid w-full grid-cols-1 gap-4 sm:grid-cols-3">
             {heroStats.map((stat) => (
               <div
                 key={stat.label}
-                className="rounded-2xl border border-white/20 bg-white/10 p-4 backdrop-blur-sm"
+                className="rounded-2xl border border-white/20 bg-white/10 px-5 py-5 text-left backdrop-blur-sm sm:text-center"
               >
-                <p className="text-xs font-medium text-white/75">{stat.label}</p>
-                <p className="mt-1 text-sm font-bold text-white">{stat.value}</p>
+                <p className="text-sm font-medium text-white/75">{stat.label}</p>
+                <p className="mt-1.5 text-base font-bold text-white sm:text-lg">{stat.value}</p>
               </div>
             ))}
           </div>
 
         </div>
-
-        {/* Coluna direita — vazia: a foto aparece através do overlay mais leve */}
       </div>
 
     </section>
