@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import Link from "next/link"
+import { BrandLogo } from "@/components/brand-logo"
 import { Button } from "@/components/ui/button"
 import { ThemeToggle } from "@/components/theme-toggle"
 import { Instagram, Menu, MessageCircle, X } from "lucide-react"
@@ -32,17 +32,8 @@ export function Navbar() {
             scrolled ? "h-12" : "h-16",
           )}
         >
-          {/* Logo */}
           <div className="flex-shrink-0">
-            <Link
-              href="/"
-              className={cn(
-                "font-sans font-bold text-foreground transition-all duration-300",
-                scrolled ? "text-base" : "text-xl",
-              )}
-            >
-              The<span className="text-primary">Monkeys</span>
-            </Link>
+            <BrandLogo compact={scrolled} />
           </div>
 
           {/* Nav links — desktop */}

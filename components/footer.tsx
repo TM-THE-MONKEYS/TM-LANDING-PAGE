@@ -1,5 +1,6 @@
 import { Instagram, Mail, MessageCircle } from "lucide-react"
 
+import { BrandLogo } from "@/components/brand-logo"
 import { Button } from "@/components/ui/button"
 import { contactEmail, instagramHref, legalLinks, navLinks, siteConfig, whatsappHref } from "@/lib/site"
 
@@ -9,9 +10,7 @@ export function Footer() {
       <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 gap-8 md:grid-cols-4">
           <div className="col-span-1 md:col-span-2">
-            <h2 className="mb-4 font-sans text-2xl font-bold text-foreground">
-              The<span className="text-primary">Monkeys</span>
-            </h2>
+            <BrandLogo className="mb-4 text-2xl" />
             <p className="mb-3 max-w-md text-lg font-semibold text-foreground">{siteConfig.slogan}</p>
             <p className="mb-6 max-w-md font-sans text-muted-foreground">{siteConfig.description}</p>
             <a
