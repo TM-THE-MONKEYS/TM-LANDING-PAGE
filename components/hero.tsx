@@ -22,49 +22,73 @@ const heroStats = [
 ]
 
 export function Hero() {
-  const [scrollY, setScrollY] = useState(0)
+  const [progress, setProgress] = useState(0)
+  const [motionOk, setMotionOk] = useState(false)
 
   useEffect(() => {
-    const handleScroll = () => setScrollY(window.scrollY)
-    window.addEventListener("scroll", handleScroll, { passive: true })
-    return () => window.removeEventListener("scroll", handleScroll)
+    const media = window.matchMedia("(prefers-reduced-motion: reduce)")
+    const syncMotion = () => setMotionOk(!media.matches)
+    syncMotion()
+    media.addEventListener("change", syncMotion)
+
+    let frame = 0
+    const onScroll = () => {
+      if (frame) return
+      frame = window.requestAnimationFrame(() => {
+        frame = 0
+        if (media.matches) {
+          setProgress(0)
+          return
+        }
+        setProgress(Math.min(window.scrollY / 720, 1))
+      })
+    }
+
+    onScroll()
+    window.addEventListener("scroll", onScroll, { passive: true })
+    return () => {
+      media.removeEventListener("change", syncMotion)
+      window.removeEventListener("scroll", onScroll)
+      if (frame) window.cancelAnimationFrame(frame)
+    }
   }, [])
 
-  const progress = Math.min(scrollY / 520, 1)
-  const scale    = 1 - progress * 0.1   // 1 → 0.90
-  const radius   = progress * 28        // 0 → 28px
+  // Parallax suave: a foto acompanha o scroll sem “encolher” e sem faixa preta.
+  const imageShift = motionOk ? progress * 64 : 0
+  const contentShift = motionOk ? progress * 36 : 0
+  const contentFade = motionOk ? 1 - progress * 0.45 : 1
 
   return (
-    <section className="relative min-h-svh bg-black">
-
-      {/* ── Foto full-bleed com efeito de encolher ── */}
-      <div
-        aria-hidden="true"
-        className="absolute inset-0 overflow-hidden"
-        style={{
-          transform: `scale(${scale})`,
-          borderRadius: `${radius}px`,
-          transformOrigin: "top center",
-          willChange: "transform",
-        }}
-      >
-        <Image
-          src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1920&q=80"
-          alt="Profissionais trabalhando com sistema de gestão"
-          fill
-          className="object-cover object-center"
-          priority
-          sizes="100vw"
-        />
-        {/* Overlay uniforme: texto centralizado precisa de contraste em toda a largura */}
+    <section className="relative min-h-svh overflow-hidden bg-black">
+      <div aria-hidden="true" className="absolute inset-0 overflow-hidden">
+        <div
+          className="absolute inset-0 will-change-transform"
+          style={{
+            transform: `translate3d(0, ${imageShift}px, 0) scale(1.08)`,
+            transformOrigin: "center top",
+          }}
+        >
+          <Image
+            src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1920&q=80"
+            alt="Profissionais trabalhando com sistema de gestão"
+            fill
+            className="object-cover object-center"
+            priority
+            sizes="100vw"
+          />
+        </div>
         <div className="absolute inset-0 bg-black/60" />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/35 to-black/45" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/35 to-black/45" />
       </div>
 
-      {/* Conteúdo centralizado — escala maior pra preencher o viewport */}
-      <div className="relative z-10 mx-auto flex min-h-svh max-w-6xl flex-col items-center justify-center px-6 pt-24 pb-16 text-center sm:px-10">
+      <div
+        className="relative z-10 mx-auto flex min-h-svh max-w-6xl flex-col items-center justify-center px-6 pt-24 pb-16 text-center will-change-transform sm:px-10"
+        style={{
+          transform: `translate3d(0, ${contentShift}px, 0)`,
+          opacity: contentFade,
+        }}
+      >
         <div className="w-full py-6">
-
           <div className="hero-badge mb-8 inline-flex items-center gap-3 rounded-full border border-primary/55 bg-primary/20 px-6 py-3 text-lg font-semibold text-white shadow-[0_0_28px_-4px] shadow-primary/40 backdrop-blur-sm sm:text-xl">
             <span className="flex size-8 items-center justify-center rounded-full bg-primary/30">
               <Layers3 className="size-5 shrink-0 text-primary" />
@@ -72,7 +96,7 @@ export function Hero() {
             Sistemas sob medida para quem cansou de planilha.
           </div>
 
-          <h1 className="font-sans text-5xl font-black leading-[1.05] tracking-tight text-white text-balance sm:text-6xl lg:text-7xl xl:text-8xl">
+          <h1 className="font-sans text-5xl font-black leading-[1.05] tracking-tight text-balance text-white sm:text-6xl lg:text-7xl xl:text-8xl">
             Sua empresa cresceu.
             <br className="hidden sm:block" />
             Sua planilha não acompanhou.
@@ -120,10 +144,8 @@ export function Hero() {
               </div>
             ))}
           </div>
-
         </div>
       </div>
-
     </section>
   )
 }
