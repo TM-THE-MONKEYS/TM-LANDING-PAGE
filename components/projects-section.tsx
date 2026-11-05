@@ -9,10 +9,12 @@ export function ProjectsSection() {
       <div className="mx-auto max-w-7xl">
         <div className="mb-16 max-w-3xl">
           <p className="mb-3 text-sm font-semibold tracking-wide text-primary">Projetos</p>
-          <h2 className="font-sans text-3xl font-bold sm:text-5xl">Dois sistemas no ar.</h2>
+          <h2 className="font-sans text-3xl font-bold sm:text-5xl">
+            Alguns de nossos projetos em produção hoje.
+          </h2>
           <p className="mt-5 max-w-2xl text-lg leading-8 text-muted-foreground">
-            Um painel que roda a operação de uma transportadora e um site que vende brindes.
-            Os dois foram desenhados, construídos e colocados no ar por nós.
+            Do painel de uma transportadora à vitrine de uma marca de brindes — sistemas
+            desenhados, construídos e colocados no ar por nós, com operação real.
           </p>
         </div>
 
