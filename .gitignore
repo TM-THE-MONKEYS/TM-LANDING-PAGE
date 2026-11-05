@@ -28,3 +28,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# masters da gravação (os arquivos finais ficam em public/projects)
+/scripts/.recordings
