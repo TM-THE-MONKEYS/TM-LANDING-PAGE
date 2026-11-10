@@ -9,10 +9,18 @@ type BrandLogoProps = {
   compact?: boolean
   /** Show wordmark next to the mark (default true) */
   showWordmark?: boolean
+  /** Use full lockup (logo with text) instead of icon mark */
+  variant?: "mark" | "full"
 }
 
-export function BrandLogo({ className, compact = false, showWordmark = true }: BrandLogoProps) {
-  const markSize = compact ? 30 : 40
+export function BrandLogo({
+  className,
+  compact = false,
+  showWordmark = true,
+  variant = "mark",
+}: BrandLogoProps) {
+  const markSize = compact ? 36 : 48
+  const isFull = variant === "full"
 
   return (
     <Link
@@ -24,24 +32,38 @@ export function BrandLogo({ className, compact = false, showWordmark = true }: B
       )}
       aria-label="The Monkeys — início"
     >
-      <Image
-        src="/mark-monkey.png"
-        alt=""
-        width={markSize}
-        height={markSize}
-        className={cn(
-          "shrink-0 object-contain transition-all duration-300",
-          // marca branca → preta no tema claro; branca no escuro
-          "brightness-0 dark:brightness-100",
-          compact ? "size-7" : "size-9",
-        )}
-        priority
-      />
-      {showWordmark ? (
-        <span>
-          The<span className="text-primary">Monkeys</span>
-        </span>
-      ) : null}
+      {isFull ? (
+        <Image
+          src="/logo-oficial.png"
+          alt="The Monkeys Digital Solutions"
+          width={compact ? 160 : 200}
+          height={compact ? 160 : 200}
+          className={cn(
+            "shrink-0 object-contain transition-all duration-300",
+            compact ? "h-14 w-auto" : "h-16 w-auto",
+          )}
+          priority
+        />
+      ) : (
+        <>
+          <Image
+            src="/mark-oficial.png"
+            alt=""
+            width={markSize}
+            height={markSize}
+            className={cn(
+              "shrink-0 object-contain transition-all duration-300",
+              compact ? "size-9" : "size-11",
+            )}
+            priority
+          />
+          {showWordmark ? (
+            <span>
+              The<span className="text-primary">Monkeys</span>
+            </span>
+          ) : null}
+        </>
+      )}
     </Link>
   )
 }

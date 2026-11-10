@@ -8,7 +8,10 @@ import { Footer } from "@/components/footer"
 import { ThemeProvider } from "@/components/theme-provider"
 import { siteConfig } from "@/lib/site"
 
+const siteUrl = "https://www.themonkeys.com.br"
+
 export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
   title: "The Monkeys | Sistemas de gestão sob medida para PMEs",
   description: siteConfig.description,
   generator: "v0.app",
@@ -26,7 +29,23 @@ export const metadata: Metadata = {
     description: siteConfig.description,
     type: "website",
     locale: "pt_BR",
-    images: [{ url: "/mark-monkey.png", width: 512, height: 512, alt: "The Monkeys" }],
+    url: siteUrl,
+    siteName: siteConfig.name,
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "The Monkeys Digital Solutions",
+        type: "image/png",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "The Monkeys | Sua empresa cresceu. Sua planilha não acompanhou.",
+    description: siteConfig.description,
+    images: ["/og-image.png"],
   },
 }
 
